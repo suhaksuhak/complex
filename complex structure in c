@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <math.h>
+
+#define PI 3.14159265358971
+
+struct complex{
+    double real;
+    double imagin;
+}I = {0.0, 1.0};
+
+struct complex cadd(struct complex z1, struct complex z2);
+struct complex cmult(struct complex z1, struct complex z2);
+struct complex ccexp(struct complex z);
+
+
+int main(void)
+{
+
+    return 0;
+}
+
+
+
+struct complex cadd(struct complex z1, struct complex z2)
+{
+    struct complex tempadd;
+    tempadd.real = z1.real + z2.real;
+    tempadd.imagin = z1.imagin + z2.imagin;
+    return tempadd;
+}
+
+struct complex cmult(struct complex z1, struct complex z2)
+{
+    struct complex tempmult;
+    tempmult.real = z1.real*z2.real - z1.imagin*z2.imagin;
+    tempmult.imagin = z1.real*z2.imagin + z1.imagin*z2.real;
+    return tempmult;
+}
+
+
+struct complex ccexp(struct complex z)
+{
+    struct complex temp;
+    double e = exp(z.real);
+    temp.real = e*cos(z.imagin);
+    temp.imagin = e*sin(z.imagin);
+    return temp;
+}
